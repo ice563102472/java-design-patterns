@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,12 +30,12 @@ package com.iluwatar.front.controller;
 public class FrontController {
 
   public void handleRequest(String request) {
-    Command command = getCommand(request);
+    var command = getCommand(request);
     command.process();
   }
 
   private Command getCommand(String request) {
-    Class<?> commandClass = getCommandClass(request);
+    var commandClass = getCommandClass(request);
     try {
       return (Command) commandClass.newInstance();
     } catch (Exception e) {
@@ -44,12 +44,10 @@ public class FrontController {
   }
 
   private static Class<?> getCommandClass(String request) {
-    Class<?> result;
     try {
-      result = Class.forName("com.iluwatar.front.controller." + request + "Command");
+      return Class.forName("com.iluwatar.front.controller." + request + "Command");
     } catch (ClassNotFoundException e) {
-      result = UnknownCommand.class;
+      return UnknownCommand.class;
     }
-    return result;
   }
 }

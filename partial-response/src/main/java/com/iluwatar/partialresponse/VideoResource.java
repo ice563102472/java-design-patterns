@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,14 +26,16 @@ package com.iluwatar.partialresponse;
 import java.util.Map;
 
 /**
- * The resource class which serves video information.
- * This class act as server in the demo. Which has all video details.
+ * The resource class which serves video information. This class act as server in the demo. Which
+ * has all video details.
  */
 public class VideoResource {
-  private FieldJsonMapper fieldJsonMapper;
-  private Map<Integer, Video> videos;
+  private final FieldJsonMapper fieldJsonMapper;
+  private final Map<Integer, Video> videos;
 
   /**
+   * Constructor.
+   *
    * @param fieldJsonMapper map object to json.
    * @param videos          initialize resource with existing videos. Act as database.
    */
@@ -43,6 +45,8 @@ public class VideoResource {
   }
 
   /**
+   * Get Details.
+   *
    * @param id     video id
    * @param fields fields to get information about
    * @return full response if no fields specified else partial response for given field.

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,6 @@
 package com.iluwatar.dependency.injection;
 
 import com.google.inject.Guice;
-import com.google.inject.Injector;
 
 /**
  * Dependency Injection pattern deals with how objects handle their dependencies. The pattern
@@ -55,18 +54,18 @@ public class App {
    * @param args command line args
    */
   public static void main(String[] args) {
-    SimpleWizard simpleWizard = new SimpleWizard();
+    var simpleWizard = new SimpleWizard();
     simpleWizard.smoke();
 
-    AdvancedWizard advancedWizard = new AdvancedWizard(new SecondBreakfastTobacco());
+    var advancedWizard = new AdvancedWizard(new SecondBreakfastTobacco());
     advancedWizard.smoke();
 
-    AdvancedSorceress advancedSorceress = new AdvancedSorceress();
+    var advancedSorceress = new AdvancedSorceress();
     advancedSorceress.setTobacco(new SecondBreakfastTobacco());
     advancedSorceress.smoke();
 
-    Injector injector = Guice.createInjector(new TobaccoModule());
-    GuiceWizard guiceWizard = injector.getInstance(GuiceWizard.class);
+    var injector = Guice.createInjector(new TobaccoModule());
+    var guiceWizard = injector.getInstance(GuiceWizard.class);
     guiceWizard.smoke();
   }
 }

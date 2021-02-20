@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -104,7 +104,7 @@ public class Account {
    * @return the account
    */
   public Account copy() {
-    Account account = new Account(accountNo, owner);
+    var account = new Account(accountNo, owner);
     account.setMoney(money);
     return account;
   }
@@ -135,7 +135,7 @@ public class Account {
   }
 
   private void handleWithdrawal(BigDecimal money, boolean realTime) {
-    if (this.money.compareTo(money) == -1) {
+    if (this.money.compareTo(money) < 0) {
       throw new RuntimeException("Insufficient Account Balance");
     }
 

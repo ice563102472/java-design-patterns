@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,8 +41,8 @@ public class DragonSlayerTest {
    */
   @Test
   public void testGoToBattle() {
-    final DragonSlayingStrategy strategy = mock(DragonSlayingStrategy.class);
-    final DragonSlayer dragonSlayer = new DragonSlayer(strategy);
+    final var strategy = mock(DragonSlayingStrategy.class);
+    final var dragonSlayer = new DragonSlayer(strategy);
 
     dragonSlayer.goToBattle();
     verify(strategy).execute();
@@ -54,13 +54,13 @@ public class DragonSlayerTest {
    */
   @Test
   public void testChangeStrategy() {
-    final DragonSlayingStrategy initialStrategy = mock(DragonSlayingStrategy.class);
-    final DragonSlayer dragonSlayer = new DragonSlayer(initialStrategy);
+    final var initialStrategy = mock(DragonSlayingStrategy.class);
+    final var dragonSlayer = new DragonSlayer(initialStrategy);
 
     dragonSlayer.goToBattle();
     verify(initialStrategy).execute();
 
-    final DragonSlayingStrategy newStrategy = mock(DragonSlayingStrategy.class);
+    final var newStrategy = mock(DragonSlayingStrategy.class);
     dragonSlayer.changeStrategy(newStrategy);
 
     dragonSlayer.goToBattle();

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,7 @@ public class SimpleFileWriter {
    * Constructor.
    */
   public SimpleFileWriter(String filename, FileWriterAction action) throws IOException {
-    try (FileWriter writer = new FileWriter(filename)) {
+    try (var writer = new FileWriter(filename)) {
       action.writeFile(writer);
     }
   }

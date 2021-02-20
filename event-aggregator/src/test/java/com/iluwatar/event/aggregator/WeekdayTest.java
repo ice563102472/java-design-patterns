@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +23,11 @@
 
 package com.iluwatar.event.aggregator;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
 
 /**
  * Date: 12/12/15 - 2:12 PM
@@ -37,11 +38,11 @@ public class WeekdayTest {
 
   @Test
   public void testToString() {
-    for (final Weekday weekday : Weekday.values()) {
+    Arrays.stream(Weekday.values()).forEach(weekday -> {
       final String toString = weekday.toString();
       assertNotNull(toString);
       assertEquals(weekday.name(), toString.toUpperCase());
-    }
+    });
   }
 
 }

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -57,16 +57,17 @@ public class App {
    */
   public static void main(String[] args) {
     // initialize game objects and print their status
-    List<GameObject> objects = List.of(
+    var objects = List.of(
         new FlamingAsteroid(0, 0, 5, 5),
         new SpaceStationMir(1, 1, 2, 2),
         new Meteoroid(10, 10, 15, 15),
-        new SpaceStationIss(12, 12, 14, 14));
-    objects.stream().forEach(o -> LOGGER.info(o.toString()));
+        new SpaceStationIss(12, 12, 14, 14)
+    );
+    objects.forEach(o -> LOGGER.info(o.toString()));
     LOGGER.info("");
 
     // collision check
-    objects.stream().forEach(o1 -> objects.stream().forEach(o2 -> {
+    objects.forEach(o1 -> objects.forEach(o2 -> {
       if (o1 != o2 && o1.intersectsWith(o2)) {
         o1.collision(o2);
       }
@@ -74,7 +75,7 @@ public class App {
     LOGGER.info("");
 
     // output eventual object statuses
-    objects.stream().forEach(o -> LOGGER.info(o.toString()));
+    objects.forEach(o -> LOGGER.info(o.toString()));
     LOGGER.info("");
   }
 }

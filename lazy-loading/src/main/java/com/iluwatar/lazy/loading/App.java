@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -46,18 +46,18 @@ public class App {
   public static void main(String[] args) {
 
     // Simple lazy loader - not thread safe
-    HolderNaive holderNaive = new HolderNaive();
-    Heavy heavy = holderNaive.getHeavy();
+    var holderNaive = new HolderNaive();
+    var heavy = holderNaive.getHeavy();
     LOGGER.info("heavy={}", heavy);
 
     // Thread safe lazy loader, but with heavy synchronization on each access
-    HolderThreadSafe holderThreadSafe = new HolderThreadSafe();
-    Heavy another = holderThreadSafe.getHeavy();
+    var holderThreadSafe = new HolderThreadSafe();
+    var another = holderThreadSafe.getHeavy();
     LOGGER.info("another={}", another);
 
     // The most efficient lazy loader utilizing Java 8 features
-    Java8Holder java8Holder = new Java8Holder();
-    Heavy next = java8Holder.getHeavy();
+    var java8Holder = new Java8Holder();
+    var next = java8Holder.getHeavy();
     LOGGER.info("next={}", next);
   }
 }

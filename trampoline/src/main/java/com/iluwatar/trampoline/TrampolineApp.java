@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,8 @@
 
 package com.iluwatar.trampoline;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Trampoline pattern allows to define recursive algorithms by iterative loop.
@@ -32,8 +33,9 @@ import lombok.extern.slf4j.Slf4j;
  * and to interleave the execution of functions without hard coding them together or even using
  * threads.
  */
-@Slf4j
 public class TrampolineApp {
+
+  private static final Logger log = LoggerFactory.getLogger(TrampolineApp.class);
 
   /**
    * Main program for showing pattern. It does loop with factorial function.

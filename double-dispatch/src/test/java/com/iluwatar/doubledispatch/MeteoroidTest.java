@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +23,10 @@
 
 package com.iluwatar.doubledispatch;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Date: 12/10/15 - 11:31 PM
@@ -45,7 +45,7 @@ public class MeteoroidTest extends CollisionTest<Meteoroid> {
    */
   @Test
   public void testConstructor() {
-    final Meteoroid meteoroid = new Meteoroid(1, 2, 3, 4);
+    final var meteoroid = new Meteoroid(1, 2, 3, 4);
     assertEquals(1, meteoroid.getLeft());
     assertEquals(2, meteoroid.getTop());
     assertEquals(3, meteoroid.getRight());
@@ -63,8 +63,7 @@ public class MeteoroidTest extends CollisionTest<Meteoroid> {
     testCollision(
         new FlamingAsteroid(1, 1, 3, 4),
         false, true,
-        false, false,
-        "Meteoroid hits FlamingAsteroid."
+        false, false
     );
   }
 
@@ -76,8 +75,7 @@ public class MeteoroidTest extends CollisionTest<Meteoroid> {
     testCollision(
         new Meteoroid(1, 1, 3, 4),
         false, false,
-        false, false,
-        "Meteoroid hits Meteoroid."
+        false, false
     );
   }
 
@@ -89,8 +87,7 @@ public class MeteoroidTest extends CollisionTest<Meteoroid> {
     testCollision(
         new SpaceStationIss(1, 1, 3, 4),
         true, false,
-        false, false,
-        "Meteoroid hits SpaceStationIss. SpaceStationIss is damaged!"
+        false, false
     );
   }
 
@@ -102,8 +99,7 @@ public class MeteoroidTest extends CollisionTest<Meteoroid> {
     testCollision(
         new SpaceStationMir(1, 1, 3, 4),
         true, false,
-        false, false,
-        "Meteoroid hits SpaceStationMir. SpaceStationMir is damaged!"
+        false, false
     );
   }
 

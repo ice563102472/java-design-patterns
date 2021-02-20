@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,19 +23,25 @@
 
 package org.dirty.flag;
 
-import java.io.IOException;
-
+import com.iluwatar.dirtyflag.App;
 import org.junit.jupiter.api.Test;
 
-import com.iluwatar.dirtyflag.App;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
  * Tests that Dirty-Flag example runs without errors.
  */
-public class AppTest {
+class AppTest {
+
+  /**
+   * Issue: Add at least one assertion to this test case.
+   *
+   * Solution: Inserted assertion to check whether the execution of the main method in {@link App#main(String[])}
+   * throws an exception.
+   */
+
   @Test
-  public void test() throws IOException {
-    String[] args = {};
-    App.main(args);
+  void shouldExecuteApplicationWithoutException() {
+    assertDoesNotThrow(() -> App.main(new String[]{}));
   }
 }

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,14 +41,14 @@ public class MenuView implements View {
 
   @Override
   public void storeChanged(Store store) {
-    MenuStore menuStore = (MenuStore) store;
+    var menuStore = (MenuStore) store;
     selected = menuStore.getSelected();
     render();
   }
 
   @Override
   public void render() {
-    for (MenuItem item : MenuItem.values()) {
+    for (var item : MenuItem.values()) {
       if (selected.equals(item)) {
         LOGGER.info("* {}", item);
       } else {

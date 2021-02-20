@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,8 +40,8 @@ public class MessageAggregationStrategy implements AggregationStrategy {
       return newExchange;
     }
 
-    String in1 = (String) oldExchange.getIn().getBody();
-    String in2 = (String) newExchange.getIn().getBody();
+    var in1 = (String) oldExchange.getIn().getBody();
+    var in2 = (String) newExchange.getIn().getBody();
 
     oldExchange.getIn().setBody(in1 + ";" + in2);
 

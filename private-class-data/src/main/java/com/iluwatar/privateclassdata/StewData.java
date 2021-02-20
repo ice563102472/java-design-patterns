@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,19 +24,17 @@
 package com.iluwatar.privateclassdata;
 
 /**
- * 
- * Stew ingredients
- *
+ * Stew ingredients.
  */
 public class StewData {
 
-  private int numPotatoes;
-  private int numCarrots;
-  private int numMeat;
-  private int numPeppers;
+  private final int numPotatoes;
+  private final int numCarrots;
+  private final int numMeat;
+  private final int numPeppers;
 
   /**
-   * Constructor
+   * Constructor.
    */
   public StewData(int numPotatoes, int numCarrots, int numMeat, int numPeppers) {
     this.numPotatoes = numPotatoes;

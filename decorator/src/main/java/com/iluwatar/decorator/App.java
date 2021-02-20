@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The Decorator pattern is a more flexible alternative to subclassing. The Decorator class
- * implements the same interface as the target and uses aggregation to "decorate" calls to the
+ * implements the same interface as the target and uses composition to "decorate" calls to the
  * target. Using the Decorator pattern it is possible to change the behavior of the class during
  * runtime.
  *
@@ -49,14 +49,14 @@ public class App {
 
     // simple troll
     LOGGER.info("A simple looking troll approaches.");
-    Troll troll = new SimpleTroll();
+    var troll = new SimpleTroll();
     troll.attack();
     troll.fleeBattle();
     LOGGER.info("Simple troll power {}.\n", troll.getAttackPower());
 
     // change the behavior of the simple troll by adding a decorator
     LOGGER.info("A troll with huge club surprises you.");
-    Troll clubbedTroll = new ClubbedTroll(troll);
+    var clubbedTroll = new ClubbedTroll(troll);
     clubbedTroll.attack();
     clubbedTroll.fleeBattle();
     LOGGER.info("Clubbed troll power {}.\n", clubbedTroll.getAttackPower());

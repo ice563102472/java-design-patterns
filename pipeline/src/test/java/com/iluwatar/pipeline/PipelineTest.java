@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,9 @@
 
 package com.iluwatar.pipeline;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Test for {@link Pipeline}
@@ -34,12 +34,12 @@ public class PipelineTest {
 
   @Test
   public void testAddHandlersToPipeline() {
-    Pipeline<String, char[]> filters = new Pipeline<>(new RemoveAlphabetsHandler())
+    var filters = new Pipeline<>(new RemoveAlphabetsHandler())
         .addHandler(new RemoveDigitsHandler())
         .addHandler(new ConvertToCharArrayHandler());
 
     assertArrayEquals(
-        new char[] {'#', '!', '(', '&', '%', '#', '!'},
+        new char[]{'#', '!', '(', '&', '%', '#', '!'},
         filters.execute("#H!E(L&L0O%THE3R#34E!")
     );
   }

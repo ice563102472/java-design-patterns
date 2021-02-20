@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,13 +28,16 @@ package com.iluwatar.converter;
  */
 public class UserConverter extends Converter<UserDto, User> {
 
-  /**
-   * Constructor.
-   */
   public UserConverter() {
-    super(userDto -> new User(userDto.getFirstName(), userDto.getLastName(), userDto.isActive(),
-            userDto.getEmail()),
-        user -> new UserDto(user.getFirstName(), user.getLastName(), user.isActive(),
-            user.getUserId()));
+    super(UserConverter::convertToEntity, UserConverter::convertToDto);
   }
+
+  private static UserDto convertToDto(User user) {
+    return new UserDto(user.getFirstName(), user.getLastName(), user.isActive(), user.getUserId());
+  }
+
+  private static User convertToEntity(UserDto dto) {
+    return new User(dto.getFirstName(), dto.getLastName(), dto.isActive(), dto.getEmail());
+  }
+
 }

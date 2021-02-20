@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -59,11 +59,11 @@ import java.time.LocalDateTime;
 class App {
 
   public static void main(String[] args) {
-    final DataBus bus = DataBus.getInstance();
+    final var bus = DataBus.getInstance();
     bus.subscribe(new StatusMember(1));
     bus.subscribe(new StatusMember(2));
-    final MessageCollectorMember foo = new MessageCollectorMember("Foo");
-    final MessageCollectorMember bar = new MessageCollectorMember("Bar");
+    final var foo = new MessageCollectorMember("Foo");
+    final var bar = new MessageCollectorMember("Bar");
     bus.subscribe(foo);
     bus.publish(StartingData.of(LocalDateTime.now()));
     bus.publish(MessageData.of("Only Foo should see this"));

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Message Worker
+ * Message Worker.
  */
 public class Worker {
 
@@ -40,12 +40,12 @@ public class Worker {
   }
 
   /**
-   * Keep checking queue for message
+   * Keep checking queue for message.
    */
   @SuppressWarnings("squid:S2189")
   public void run() throws Exception {
     while (true) {
-      Message message = queueManager.receiveMessage();
+      var message = queueManager.receiveMessage();
       if (message == null) {
         LOGGER.info("No Message ... waiting");
         Thread.sleep(200);
@@ -56,7 +56,7 @@ public class Worker {
   }
 
   /**
-   * Process message
+   * Process message.
    */
   private void processMessage(Message message) {
     LOGGER.info(message.toString());

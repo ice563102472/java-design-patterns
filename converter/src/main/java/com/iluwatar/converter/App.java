@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -49,8 +49,11 @@ public class App {
     User user = userConverter.convertFromDto(dtoUser);
     LOGGER.info("Entity converted from DTO:" + user);
 
-    var users = List.of(new User("Camile", "Tough", false, "124sad"),
-        new User("Marti", "Luther", true, "42309fd"), new User("Kate", "Smith", true, "if0243"));
+    var users = List.of(
+        new User("Camile", "Tough", false, "124sad"),
+        new User("Marti", "Luther", true, "42309fd"),
+        new User("Kate", "Smith", true, "if0243")
+    );
     LOGGER.info("Domain entities:");
     users.stream().map(User::toString).forEach(LOGGER::info);
 

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -48,13 +48,13 @@ public class App {
    * @param args command line args
    */
   public static void main(String[] args) {
-    WeaponFactory factory = WeaponFactory.factory(builder -> {
+    var factory = WeaponFactory.factory(builder -> {
       builder.add(WeaponType.SWORD, Sword::new);
       builder.add(WeaponType.AXE, Axe::new);
       builder.add(WeaponType.SPEAR, Spear::new);
       builder.add(WeaponType.BOW, Bow::new);
     });
-    Weapon axe = factory.create(WeaponType.AXE);
+    var axe = factory.create(WeaponType.AXE);
     LOGGER.info(axe.toString());
   }
 }

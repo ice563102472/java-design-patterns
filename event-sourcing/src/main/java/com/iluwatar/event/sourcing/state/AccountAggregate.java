@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,7 @@ package com.iluwatar.event.sourcing.state;
 import com.iluwatar.event.sourcing.domain.Account;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * This is the static accounts map holder class. This class holds the state of the accounts.
@@ -55,11 +56,10 @@ public class AccountAggregate {
    * @return the copy of the account or null if not found
    */
   public static Account getAccount(int accountNo) {
-    Account account = accounts.get(accountNo);
-    if (account == null) {
-      return null;
-    }
-    return account.copy();
+    return Optional.of(accountNo)
+        .map(accounts::get)
+        .map(Account::copy)
+        .orElse(null);
   }
 
   /**

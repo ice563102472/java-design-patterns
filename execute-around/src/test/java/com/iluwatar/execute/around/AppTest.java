@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,30 +23,28 @@
 
 package com.iluwatar.execute.around;
 
+import java.io.File;
+import java.io.IOException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * 
  * Tests execute-around example.
- *
  */
-public class AppTest {
+class AppTest {
 
   @Test
-  public void test() throws IOException {
-    String[] args = {};
-    App.main(args);
+  void shouldExecuteApplicationWithoutException() {
+    assertDoesNotThrow(() -> App.main(new String[]{}));
   }
 
   @BeforeEach
   @AfterEach
-  public void cleanup() {
-    File file = new File("testfile.txt");
+  void cleanup() {
+    var file = new File("testfile.txt");
     file.delete();
   }
 }

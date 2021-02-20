@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -64,7 +64,7 @@ public class App {
    */
   public static void main(String[] args) {
     // Lets go to war with Orc weapons
-    App app = new App(new OrcBlacksmith());
+    var app = new App(new OrcBlacksmith());
     app.manufactureWeapons();
     
     // Lets go to war with Elf weapons
@@ -73,8 +73,7 @@ public class App {
   }
   
   private void manufactureWeapons() {
-    Weapon weapon;
-    weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);
+    var weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);
     LOGGER.info(weapon.toString());
     weapon = blacksmith.manufactureWeapon(WeaponType.AXE);
     LOGGER.info(weapon.toString());

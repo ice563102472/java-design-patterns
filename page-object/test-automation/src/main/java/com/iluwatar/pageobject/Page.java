@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,20 +26,19 @@ package com.iluwatar.pageobject;
 import com.gargoylesoftware.htmlunit.WebClient;
 
 /**
- * Encapsulation for a generic 'Page'
+ * Encapsulation for a generic 'Page'.
  */
 public abstract class Page {
 
   /**
-   * Application Under Test path
-   * This directory location is where html web pages are located
+   * Application Under Test path This directory location is where html web pages are located.
    */
   public static final String AUT_PATH = "../sample-application/src/main/resources/sample-ui/";
 
   protected final WebClient webClient;
 
   /**
-   * Constructor
+   * Constructor.
    *
    * @param webClient {@link WebClient}
    */
@@ -48,7 +47,7 @@ public abstract class Page {
   }
 
   /**
-   * Checks that the current page is actually the page this page object represents
+   * Checks that the current page is actually the page this page object represents.
    *
    * @return true if so, otherwise false
    */

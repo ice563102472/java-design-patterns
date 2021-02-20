@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +23,10 @@
 
 package units;
 
-import abstractextensions.SoldierExtension;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by Srdjan on 03-May-17.
@@ -35,14 +34,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class SoldierUnitTest {
   @Test
   public void getUnitExtension() {
-
-    final Unit unit = new SoldierUnit("SoldierUnitName");
+    final var unit = new SoldierUnit("SoldierUnitName");
 
     assertNotNull(unit.getUnitExtension("SoldierExtension"));
     assertNull(unit.getUnitExtension("SergeantExtension"));
     assertNull(unit.getUnitExtension("CommanderExtension"));
-
-
   }
 
 }

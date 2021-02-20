@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,7 @@ public class MenuStore extends Store {
   @Override
   public void onAction(Action action) {
     if (action.getType().equals(ActionType.MENU_ITEM_SELECTED)) {
-      MenuAction menuAction = (MenuAction) action;
+      var menuAction = (MenuAction) action;
       selected = menuAction.getMenuItem();
       notifyChange();
     }

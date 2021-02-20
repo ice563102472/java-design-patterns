@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +23,10 @@
 
 package com.iluwatar.eda.event;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.iluwatar.eda.model.User;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * {@link UserCreatedEventTest} tests and verifies {@link AbstractEvent} behaviour.
@@ -39,8 +39,8 @@ public class UserCreatedEventTest {
    */
   @Test
   public void testGetEventType() {
-    User user = new User("iluwatar");
-    UserCreatedEvent userCreatedEvent = new UserCreatedEvent(user);
+    var user = new User("iluwatar");
+    var userCreatedEvent = new UserCreatedEvent(user);
     assertEquals(UserCreatedEvent.class, userCreatedEvent.getType());
   }
 }

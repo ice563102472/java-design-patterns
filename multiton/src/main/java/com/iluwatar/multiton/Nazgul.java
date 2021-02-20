@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,15 +27,13 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 
  * Nazgul is a Multiton class. Nazgul instances can be queried using {@link #getInstance} method.
- *
  */
 public final class Nazgul {
 
-  private static Map<NazgulName, Nazgul> nazguls;
+  private static final Map<NazgulName, Nazgul> nazguls;
 
-  private NazgulName name;
+  private final NazgulName name;
 
   static {
     nazguls = new ConcurrentHashMap<>();

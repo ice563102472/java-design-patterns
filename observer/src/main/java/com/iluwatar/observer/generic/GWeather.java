@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,7 +44,7 @@ public class GWeather extends Observable<GWeather, Race, WeatherType> {
    * Makes time pass for weather.
    */
   public void timePasses() {
-    WeatherType[] enumValues = WeatherType.values();
+    var enumValues = WeatherType.values();
     currentWeather = enumValues[(currentWeather.ordinal() + 1) % enumValues.length];
     LOGGER.info("The weather changed to {}.", currentWeather);
     notifyObservers(currentWeather);

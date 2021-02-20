@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,13 +27,10 @@ import com.iluwatar.hexagonal.domain.LotteryNumbers;
 import com.iluwatar.hexagonal.domain.LotteryTicket;
 import com.iluwatar.hexagonal.domain.LotteryTicketId;
 import com.iluwatar.hexagonal.domain.PlayerDetails;
-
 import java.util.Set;
 
 /**
- * 
  * Utilities for lottery tests
- *
  */
 public class LotteryTestUtils {
 
@@ -43,14 +40,14 @@ public class LotteryTestUtils {
   public static LotteryTicket createLotteryTicket() {
     return createLotteryTicket("foo@bar.com", "12231-213132", "+99324554", Set.of(1, 2, 3, 4));
   }
-  
+
   /**
    * @return lottery ticket
    */
   public static LotteryTicket createLotteryTicket(String email, String account, String phone,
-      Set<Integer> givenNumbers) {
-    PlayerDetails details = new PlayerDetails(email, account, phone);
-    LotteryNumbers numbers = LotteryNumbers.create(givenNumbers);
+                                                  Set<Integer> givenNumbers) {
+    var details = new PlayerDetails(email, account, phone);
+    var numbers = LotteryNumbers.create(givenNumbers);
     return new LotteryTicket(new LotteryTicketId(), details, numbers);
   }
 }

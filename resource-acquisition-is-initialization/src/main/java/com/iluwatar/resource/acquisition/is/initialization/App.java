@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -54,11 +54,11 @@ public class App {
    */
   public static void main(String[] args) throws Exception {
 
-    try (SlidingDoor slidingDoor = new SlidingDoor()) {
+    try (var ignored = new SlidingDoor()) {
       LOGGER.info("Walking in.");
     }
 
-    try (TreasureChest treasureChest = new TreasureChest()) {
+    try (var ignored = new TreasureChest()) {
       LOGGER.info("Looting contents.");
     }
   }

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -72,33 +72,33 @@ public class App {
    */
   public static void main(String[] args) {
 
-    final Properties properties = new Properties();
+    final var properties = new Properties();
     properties.put("enhancedWelcome", true);
-    Service service = new PropertiesFeatureToggleVersion(properties);
-    final String welcomeMessage = service.getWelcomeMessage(new User("Jamie No Code"));
+    var service = new PropertiesFeatureToggleVersion(properties);
+    final var welcomeMessage = service.getWelcomeMessage(new User("Jamie No Code"));
     LOGGER.info(welcomeMessage);
 
     // ---------------------------------------------
 
-    final Properties turnedOff = new Properties();
+    final var turnedOff = new Properties();
     turnedOff.put("enhancedWelcome", false);
-    Service turnedOffService = new PropertiesFeatureToggleVersion(turnedOff);
-    final String welcomeMessageturnedOff =
+    var turnedOffService = new PropertiesFeatureToggleVersion(turnedOff);
+    final var welcomeMessageturnedOff =
         turnedOffService.getWelcomeMessage(new User("Jamie No Code"));
     LOGGER.info(welcomeMessageturnedOff);
 
     // --------------------------------------------
 
-    Service service2 = new TieredFeatureToggleVersion();
+    var service2 = new TieredFeatureToggleVersion();
 
-    final User paidUser = new User("Jamie Coder");
-    final User freeUser = new User("Alan Defect");
+    final var paidUser = new User("Jamie Coder");
+    final var freeUser = new User("Alan Defect");
 
     UserGroup.addUserToPaidGroup(paidUser);
     UserGroup.addUserToFreeGroup(freeUser);
 
-    final String welcomeMessagePaidUser = service2.getWelcomeMessage(paidUser);
-    final String welcomeMessageFreeUser = service2.getWelcomeMessage(freeUser);
+    final var welcomeMessagePaidUser = service2.getWelcomeMessage(paidUser);
+    final var welcomeMessageFreeUser = service2.getWelcomeMessage(freeUser);
     LOGGER.info(welcomeMessageFreeUser);
     LOGGER.info(welcomeMessagePaidUser);
   }

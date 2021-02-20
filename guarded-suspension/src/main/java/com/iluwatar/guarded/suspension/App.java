@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,6 @@
 
 package com.iluwatar.guarded.suspension;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -45,14 +44,11 @@ public class App {
    * @param args - command line args
    */
   public static void main(String[] args) {
-    GuardedQueue guardedQueue = new GuardedQueue();
-    ExecutorService executorService = Executors.newFixedThreadPool(3);
+    var guardedQueue = new GuardedQueue();
+    var executorService = Executors.newFixedThreadPool(3);
 
     //here we create first thread which is supposed to get from guardedQueue
-    executorService.execute(() -> {
-          guardedQueue.get();
-        }
-    );
+    executorService.execute(guardedQueue::get);
 
     // here we wait two seconds to show that the thread which is trying
     // to get from guardedQueue will be waiting
@@ -63,10 +59,7 @@ public class App {
     }
     // now we execute second thread which will put number to guardedQueue
     // and notify first thread that it could get
-    executorService.execute(() -> {
-          guardedQueue.put(20);
-        }
-    );
+    executorService.execute(() -> guardedQueue.put(20));
     executorService.shutdown();
     try {
       executorService.awaitTermination(30, TimeUnit.SECONDS);

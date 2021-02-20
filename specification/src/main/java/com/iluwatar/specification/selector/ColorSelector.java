@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,12 +25,11 @@ package com.iluwatar.specification.selector;
 
 import com.iluwatar.specification.creature.Creature;
 import com.iluwatar.specification.property.Color;
-import java.util.function.Predicate;
 
 /**
  * Color selector.
  */
-public class ColorSelector implements Predicate<Creature> {
+public class ColorSelector extends AbstractSelector<Creature> {
 
   private final Color color;
 

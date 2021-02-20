@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -63,8 +63,6 @@ public class DwarvenGoldmineFacade {
       Collection<DwarvenMineWorker> workers,
       DwarvenMineWorker.Action... actions
   ) {
-    for (DwarvenMineWorker worker : workers) {
-      worker.action(actions);
-    }
+    workers.forEach(worker -> worker.action(actions));
   }
 }

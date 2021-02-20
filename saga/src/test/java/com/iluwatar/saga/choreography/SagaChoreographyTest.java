@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.saga.choreography;
 
 import org.junit.Assert;
@@ -33,10 +34,10 @@ public class SagaChoreographyTest {
 
   @Test
   public void executeTest() {
-    ServiceDiscoveryService sd = serviceDiscovery();
-    ChoreographyChapter service = sd.findAny();
-    Saga badOrderSaga = service.execute(newSaga("bad_order"));
-    Saga goodOrderSaga = service.execute(newSaga("good_order"));
+    var sd = serviceDiscovery();
+    var service = sd.findAny();
+    var badOrderSaga = service.execute(newSaga("bad_order"));
+    var goodOrderSaga = service.execute(newSaga("good_order"));
 
     Assert.assertEquals(badOrderSaga.getResult(), Saga.SagaResult.ROLLBACKED);
     Assert.assertEquals(goodOrderSaga.getResult(), Saga.SagaResult.FINISHED);
@@ -52,7 +53,7 @@ public class SagaChoreographyTest {
   }
 
   private static ServiceDiscoveryService serviceDiscovery() {
-    ServiceDiscoveryService sd = new ServiceDiscoveryService();
+    var sd = new ServiceDiscoveryService();
     return sd
         .discover(new OrderService(sd))
         .discover(new FlyBookingService(sd))

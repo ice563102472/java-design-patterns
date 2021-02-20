@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
 package com.iluwatar.priority.queue;
 
 /**
- * Manage priority queue
+ * Manage priority queue.
  */
 public class QueueManager {
   /*
@@ -33,11 +33,11 @@ public class QueueManager {
   private final PriorityMessageQueue<Message> messagePriorityMessageQueue;
 
   public QueueManager(int initialCapacity) {
-    messagePriorityMessageQueue = new PriorityMessageQueue<Message>(new Message[initialCapacity]);
+    messagePriorityMessageQueue = new PriorityMessageQueue<>(new Message[initialCapacity]);
   }
 
   /**
-   * Publish message to queue
+   * Publish message to queue.
    */
   public void publishMessage(Message message) {
     messagePriorityMessageQueue.add(message);
@@ -45,7 +45,7 @@ public class QueueManager {
 
 
   /**
-   * recive message from queue
+   * Receive message from queue.
    */
   public Message receiveMessage() {
     if (messagePriorityMessageQueue.isEmpty()) {

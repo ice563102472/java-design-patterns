@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -61,9 +61,9 @@ public class WeatherTest {
    */
   @Test
   public void testAddRemoveObserver() {
-    final WeatherObserver observer = mock(WeatherObserver.class);
+    final var observer = mock(WeatherObserver.class);
 
-    final Weather weather = new Weather();
+    final var weather = new Weather();
     weather.addObserver(observer);
     verifyZeroInteractions(observer);
 
@@ -84,13 +84,13 @@ public class WeatherTest {
    */
   @Test
   public void testTimePasses() {
-    final WeatherObserver observer = mock(WeatherObserver.class);
-    final Weather weather = new Weather();
+    final var observer = mock(WeatherObserver.class);
+    final var weather = new Weather();
     weather.addObserver(observer);
 
-    final InOrder inOrder = inOrder(observer);
-    final WeatherType[] weatherTypes = WeatherType.values();
-    for (int i = 1; i < 20; i++) {
+    final var inOrder = inOrder(observer);
+    final var weatherTypes = WeatherType.values();
+    for (var i = 1; i < 20; i++) {
       weather.timePasses();
       inOrder.verify(observer).update(weatherTypes[i % weatherTypes.length]);
     }

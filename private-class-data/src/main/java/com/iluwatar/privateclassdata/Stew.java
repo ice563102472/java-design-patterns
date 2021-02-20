@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,9 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
- * Mutable stew class
- *
+ * Mutable stew class.
  */
 public class Stew {
 
@@ -41,7 +39,7 @@ public class Stew {
   private int numPeppers;
 
   /**
-   * Constructor
+   * Constructor.
    */
   public Stew(int numPotatoes, int numCarrots, int numMeat, int numPeppers) {
     this.numPotatoes = numPotatoes;
@@ -51,7 +49,7 @@ public class Stew {
   }
 
   /**
-   * Mix the stew
+   * Mix the stew.
    */
   public void mix() {
     LOGGER.info("Mixing the stew we find: {} potatoes, {} carrots, {} meat and {} peppers",
@@ -59,7 +57,7 @@ public class Stew {
   }
 
   /**
-   * Taste the stew
+   * Taste the stew.
    */
   public void taste() {
     LOGGER.info("Tasting the stew");

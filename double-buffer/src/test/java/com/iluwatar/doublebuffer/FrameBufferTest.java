@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,7 @@
 
 package com.iluwatar.doublebuffer;
 
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -35,10 +36,8 @@ public class FrameBufferTest {
   public void testClearAll() {
     try {
       var field = FrameBuffer.class.getDeclaredField("pixels");
-      Pixel[] pixels = new Pixel[FrameBuffer.HEIGHT * FrameBuffer.WIDTH];
-      for (int i = 0; i < pixels.length; ++i) {
-        pixels[i] = Pixel.WHITE;
-      }
+      var pixels = new Pixel[FrameBuffer.HEIGHT * FrameBuffer.WIDTH];
+      Arrays.fill(pixels, Pixel.WHITE);
       pixels[0] = Pixel.BLACK;
       var frameBuffer = new FrameBuffer();
       field.setAccessible(true);
@@ -54,10 +53,8 @@ public class FrameBufferTest {
   public void testClear() {
     try {
       var field = FrameBuffer.class.getDeclaredField("pixels");
-      Pixel[] pixels = new Pixel[FrameBuffer.HEIGHT * FrameBuffer.WIDTH];
-      for (int i = 0; i < pixels.length; ++i) {
-        pixels[i] = Pixel.WHITE;
-      }
+      var pixels = new Pixel[FrameBuffer.HEIGHT * FrameBuffer.WIDTH];
+      Arrays.fill(pixels, Pixel.WHITE);
       pixels[0] = Pixel.BLACK;
       var frameBuffer = new FrameBuffer();
       field.setAccessible(true);
@@ -80,10 +77,8 @@ public class FrameBufferTest {
   public void testGetPixels() {
     try {
       var field = FrameBuffer.class.getDeclaredField("pixels");
-      Pixel[] pixels = new Pixel[FrameBuffer.HEIGHT * FrameBuffer.WIDTH];
-      for (int i = 0; i < pixels.length; ++i) {
-        pixels[i] = Pixel.WHITE;
-      }
+      var pixels = new Pixel[FrameBuffer.HEIGHT * FrameBuffer.WIDTH];
+      Arrays.fill(pixels, Pixel.WHITE);
       pixels[0] = Pixel.BLACK;
       var frameBuffer = new FrameBuffer();
       field.setAccessible(true);

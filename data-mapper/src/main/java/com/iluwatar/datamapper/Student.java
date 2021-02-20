@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -85,7 +85,7 @@ public final class Student implements Serializable {
       isEqual = true;
     } else if (inputObject != null && getClass() == inputObject.getClass()) {
 
-      final Student inputStudent = (Student) inputObject;
+      final var inputStudent = (Student) inputObject;
 
       /* If student id matched */
       if (this.getStudentId() == inputStudent.getStudentId()) {

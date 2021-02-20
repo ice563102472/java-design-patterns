@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -80,7 +80,7 @@ public class Author {
     if (!(obj instanceof Author)) {
       return false;
     }
-    Author other = (Author) obj;
+    var other = (Author) obj;
     return username.equals(other.getUsername()) && email.equals(other.getEmail()) && name
         .equals(other.getName());
 

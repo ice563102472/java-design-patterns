@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,6 @@
 package com.iluwatar.hexagonal;
 
 import com.google.inject.Guice;
-import com.google.inject.Injector;
 import com.iluwatar.hexagonal.domain.LotteryAdministration;
 import com.iluwatar.hexagonal.domain.LotteryService;
 import com.iluwatar.hexagonal.module.LotteryTestingModule;
@@ -63,14 +62,14 @@ public class App {
    */
   public static void main(String[] args) {
 
-    Injector injector = Guice.createInjector(new LotteryTestingModule());
+    var injector = Guice.createInjector(new LotteryTestingModule());
 
     // start new lottery round
-    LotteryAdministration administration = injector.getInstance(LotteryAdministration.class);
+    var administration = injector.getInstance(LotteryAdministration.class);
     administration.resetLottery();
 
     // submit some lottery tickets
-    LotteryService service = injector.getInstance(LotteryService.class);
+    var service = injector.getInstance(LotteryService.class);
     SampleData.submitTickets(service, 20);
 
     // perform lottery

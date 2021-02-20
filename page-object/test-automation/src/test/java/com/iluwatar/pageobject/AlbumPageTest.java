@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,17 +25,16 @@ package com.iluwatar.pageobject;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.gargoylesoftware.htmlunit.WebClient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import com.gargoylesoftware.htmlunit.WebClient;
 
 /**
  * Test Album Page Operations
  */
 public class AlbumPageTest {
 
-  private AlbumPage albumPage = new AlbumPage(new WebClient());
+  private final AlbumPage albumPage = new AlbumPage(new WebClient());
 
   @BeforeEach
   public void setUp() {
@@ -45,7 +44,7 @@ public class AlbumPageTest {
   @Test
   public void testSaveAlbum() {
 
-    AlbumPage albumPageAfterChanges = albumPage
+    var albumPageAfterChanges = albumPage
         .changeAlbumTitle("25")
         .changeArtist("Adele Laurie Blue Adkins")
         .changeAlbumYear(2015)
@@ -59,7 +58,7 @@ public class AlbumPageTest {
 
   @Test
   public void testCancelChanges() {
-    AlbumListPage albumListPage = albumPage.cancelChanges();
+    var albumListPage = albumPage.cancelChanges();
     albumListPage.navigateToPage();
     assertTrue(albumListPage.isAt());
   }

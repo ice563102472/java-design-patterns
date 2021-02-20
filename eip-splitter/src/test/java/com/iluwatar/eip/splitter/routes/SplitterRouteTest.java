@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,8 +38,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 /**
  * Test class for <i>SplitterRoute</i>.
  * <p>
- * In order for it to work we have to mock endpoints we want to read/write to. To mock those we need to substitute
- * original endpoint names to mocks.
+ * In order for it to work we have to mock endpoints we want to read/write to. To mock those we need
+ * to substitute original endpoint names to mocks.
  * </p>
  */
 @ExtendWith(SpringExtension.class)
@@ -57,6 +57,7 @@ public class SplitterRouteTest {
 
   /**
    * Test if endpoint receives three separate messages.
+   *
    * @throws Exception in case of en exception during the test
    */
   @Test
@@ -64,7 +65,7 @@ public class SplitterRouteTest {
   public void testSplitter() throws Exception {
 
     // Three items in one entry message
-    entry.sendBody(new String[] {"TEST1", "TEST2", "TEST3"});
+    entry.sendBody(new String[]{"TEST1", "TEST2", "TEST3"});
 
     // Endpoint should have three different messages in the end order of the messages is not important
     endpoint.expectedMessageCount(3);

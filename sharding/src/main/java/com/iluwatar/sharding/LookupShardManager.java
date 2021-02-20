@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,7 @@ public class LookupShardManager extends ShardManager {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(LookupShardManager.class);
 
-  private Map<Integer, Integer> lookupMap = new HashMap<>();
+  private final Map<Integer, Integer> lookupMap = new HashMap<>();
 
   @Override
   public int storeData(Data data) {
@@ -58,8 +58,7 @@ public class LookupShardManager extends ShardManager {
       return lookupMap.get(key);
     } else {
       var shardCount = shardMap.size();
-      var allocatedShardId = new Random().nextInt(shardCount - 1) + 1;
-      return allocatedShardId;
+      return new Random().nextInt(shardCount - 1) + 1;
     }
   }
 

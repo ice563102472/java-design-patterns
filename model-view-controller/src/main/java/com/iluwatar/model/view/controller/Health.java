@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,15 +24,14 @@
 package com.iluwatar.model.view.controller;
 
 /**
- * 
- * Health enumeration
- *
+ * Health enumeration.
  */
 public enum Health {
+  HEALTHY("healthy"),
+  WOUNDED("wounded"),
+  DEAD("dead");
 
-  HEALTHY("healthy"), WOUNDED("wounded"), DEAD("dead");
-
-  private String title;
+  private final String title;
 
   Health(String title) {
     this.title = title;

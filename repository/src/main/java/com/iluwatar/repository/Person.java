@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -92,9 +92,8 @@ public class Person {
 
   @Override
   public int hashCode() {
-
-    final int prime = 31;
-    int result = 1;
+    final var prime = 31;
+    var result = 1;
     result = prime * result + age;
     result = prime * result + (id == null ? 0 : id.hashCode());
     result = prime * result + (name == null ? 0 : name.hashCode());
@@ -113,7 +112,7 @@ public class Person {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    Person other = (Person) obj;
+    var other = (Person) obj;
     if (age != other.age) {
       return false;
     }
@@ -132,13 +131,9 @@ public class Person {
       return false;
     }
     if (surname == null) {
-      if (other.surname != null) {
-        return false;
-      }
-    } else if (!surname.equals(other.surname)) {
-      return false;
+      return other.surname == null;
     }
-    return true;
+    return surname.equals(other.surname);
   }
 
 }

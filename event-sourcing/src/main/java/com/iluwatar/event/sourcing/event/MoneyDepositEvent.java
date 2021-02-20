@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,9 @@
 
 package com.iluwatar.event.sourcing.event;
 
-import com.iluwatar.event.sourcing.domain.Account;
 import com.iluwatar.event.sourcing.state.AccountAggregate;
 import java.math.BigDecimal;
+import java.util.Optional;
 
 /**
  * This is the class that implements money deposit event. Holds the necessary info for a money
@@ -73,10 +73,8 @@ public class MoneyDepositEvent extends DomainEvent {
 
   @Override
   public void process() {
-    Account account = AccountAggregate.getAccount(accountNo);
-    if (account == null) {
-      throw new RuntimeException("Account not found");
-    }
+    var account = Optional.ofNullable(AccountAggregate.getAccount(accountNo))
+        .orElseThrow(() -> new RuntimeException("Account not found"));
     account.handleEvent(this);
   }
 }

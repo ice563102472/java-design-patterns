@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,8 +32,9 @@ public class DepositFilter extends AbstractFilter {
 
   @Override
   public String execute(Order order) {
-    String result = super.execute(order);
-    if (order.getDepositNumber() == null || order.getDepositNumber().isEmpty()) {
+    var result = super.execute(order);
+    var depositNumber = order.getDepositNumber();
+    if (depositNumber == null || depositNumber.isEmpty()) {
       return result + "Invalid deposit number! ";
     } else {
       return result;

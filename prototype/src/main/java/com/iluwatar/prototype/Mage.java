@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +24,28 @@
 package com.iluwatar.prototype;
 
 /**
- * 
- * Mage
- *
+ * Mage.
  */
-public abstract class Mage extends Prototype {
+public abstract class Mage implements Prototype {
+
+  public Mage() {
+  }
+
+  public Mage(Mage source) {
+  }
 
   @Override
-  public abstract Mage copy() throws CloneNotSupportedException;
+  public abstract Mage copy();
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    return getClass() == obj.getClass();
+  }
 
 }

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -76,8 +76,8 @@ public class LotteryTicketCheckResult {
 
   @Override
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
+    final var prime = 31;
+    var result = 1;
     result = prime * result + ((checkResult == null) ? 0 : checkResult.hashCode());
     result = prime * result + prizeAmount;
     return result;
@@ -94,7 +94,7 @@ public class LotteryTicketCheckResult {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    LotteryTicketCheckResult other = (LotteryTicketCheckResult) obj;
+    var other = (LotteryTicketCheckResult) obj;
     return checkResult == other.checkResult && prizeAmount == other.prizeAmount;
   }
 }

@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -53,15 +53,14 @@ public class ServiceCache {
    * @return {@link Service}
    */
   public Service getService(String serviceName) {
-    Service cachedService = null;
-    for (String serviceJndiName : serviceCache.keySet()) {
-      if (serviceJndiName.equals(serviceName)) {
-        cachedService = serviceCache.get(serviceJndiName);
-        LOGGER.info("(cache call) Fetched service {}({}) from cache... !",
-            cachedService.getName(), cachedService.getId());
-      }
+    if (serviceCache.containsKey(serviceName)) {
+      var cachedService = serviceCache.get(serviceName);
+      var name = cachedService.getName();
+      var id = cachedService.getId();
+      LOGGER.info("(cache call) Fetched service {}({}) from cache... !", name, id);
+      return cachedService;
     }
-    return cachedService;
+    return null;
   }
 
   /**

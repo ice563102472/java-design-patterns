@@ -1,6 +1,6 @@
 /*
  * The MIT License
- * Copyright © 2014-2019 Ilkka Seppälä
+ * Copyright © 2014-2021 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -67,21 +67,34 @@ public class App {
    */
   public static void main(String[] args) {
 
-    var warrior =
-        CharacterStepBuilder.newBuilder().name("Amberjill").fighterClass("Paladin")
-            .withWeapon("Sword").noAbilities().build();
+    var warrior = CharacterStepBuilder
+        .newBuilder()
+        .name("Amberjill")
+        .fighterClass("Paladin")
+        .withWeapon("Sword")
+        .noAbilities()
+        .build();
 
     LOGGER.info(warrior.toString());
 
-    var mage =
-        CharacterStepBuilder.newBuilder().name("Riobard").wizardClass("Sorcerer")
-            .withSpell("Fireball").withAbility("Fire Aura").withAbility("Teleport")
-            .noMoreAbilities().build();
+    var mage = CharacterStepBuilder
+        .newBuilder()
+        .name("Riobard")
+        .wizardClass("Sorcerer")
+        .withSpell("Fireball")
+        .withAbility("Fire Aura")
+        .withAbility("Teleport")
+        .noMoreAbilities()
+        .build();
 
     LOGGER.info(mage.toString());
 
-    var thief =
-        CharacterStepBuilder.newBuilder().name("Desmond").fighterClass("Rogue").noWeapon().build();
+    var thief = CharacterStepBuilder
+        .newBuilder()
+        .name("Desmond")
+        .fighterClass("Rogue")
+        .noWeapon()
+        .build();
 
     LOGGER.info(thief.toString());
   }
